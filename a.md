@@ -38,6 +38,7 @@
 
 
 ## git branch
+<<<<<<< HEAD
     - git branch : 브랜치를 조회할수있는 명령어
     - git branch filename : 브랜치 생성
     - git checkout filename : 브랜치 이동
@@ -46,3 +47,6 @@
     - git log --branches --decorate --graph : 그래프 기능이 추가된다. 
 
 
+=======
+    - 
+>>>>>>> exp
