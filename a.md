@@ -209,3 +209,39 @@
     - git rebase branchName
     - git rebase continue
 
+## git flow
+    - master, develop, release, feature, hotfix 의 흐름으로 개발이 진행되어야한다. 
+    
+    1. master : 마스터브랜치를 뜻하고 이는 최종 버전을 의미한다.
+    2. develop : master에서 브랜치를생성해서 develop에서 개발을 진행한다. 
+      - 
+    3. feature : 기능을 담당하는 브랜치를 develop에서 생성한다.
+      - feature 가능하다면 자주 develop에서 pull한다 (충돌을 방지하기 위해서) 
+      - feature의 기능이 완벽할때 develop에 병합한다. 
+    4. release : 어떤 특정한 기능이 생성되고 이를 사용자에게 제공할때 release한다
+      - ex) 새로운 기능이 추가된 x.0.1버전 등
+      - 릴리즈 생성시 바로 master와 develop에 병합한다.
+    5. hotfix : 긴급한 버그가 발생하였을때 hotfix 를 생성하고 여기서 해결한다.
+      - 해결과 동시에 master와 develop에 병합한다. 
+
+    충돌을 줄이는 가장 좋은 방법은 규칙을 준수하며 자주 push/pull을 진행하는것이다. 
+    또한 공통 소스는 주석을 부여하고 이를 손대지 않는것이 중요하다.
+    
+   *git flow 연습*
+   ```
+    * 30fd3cf (HEAD -> master, origin/master, hotfix-some, develop) add hofix
+    * 23be14b (tag: 1.0, release-1.0) add release-1.0 doc
+    * f9135be (feature-some) fearture some
+    * f6ed002 create branch deveop flow
+    * 838e5cc (origin/dev) create branch dev & README.md
+    * 1281a31 branch test & git concept sutdy
+    *   062faf7 master commit 작성
+    |\
+    | * 39aedf6 branch에 commit 작성
+    * | 60e438f master commit 작성
+    |/
+    * 660fd11 stduy git 원리
+    * 493ee0c 3
+    * a7572e2 2
+    * ab83f89 1
+   ```
