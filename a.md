@@ -162,5 +162,50 @@
       - --set-upstream origin master : 마스터에서 푸시하면 자동으로 오리진 마스터에 푸시하겠다는 뜻
         : 로컬브랜치와 원격브랜치사이의 명시적인 설정 set-upstream 
     
-    - fork : fork를
+    - fork : fork를 하면 내가 특정 프로젝트를 내컴퓨터에서 사용할수있다. (복제)
+      : 원격저장소에 복사된다. 
+    - git clone : 특정 원격 레포지토리를 다운로드한다. 
+    
+## 원격 저장소의 원리 
+    - 로컬 master를 원격 저장소의 마스터에 연결해야한다. 
+    - remote를 하면 원격저장소를 위한 폴더(파일)이 생긴다. 
+    - 그리고 push --set-upstream origin master 를 하게 되면 각각 로컬과 원격저장소를 가르키는 파일들이 같은 커밋을 가르키게 된다. 
+    - 원격의 오리진과 지역의 마스터,HEAD르가 다를때 master를 orgin master에 push 하면 같은 커밋을 가르키게 되는것이다. 
+
+## git pull 과 fetch의 차이
+    - pull : 원격과 로컬의 데이터가 차이가 없게 다운한다. HEAD, origin/master 가 같은 커밋을 가르킨다. 
+      다운받고병합까지 할것이면 pull!!
+    - fetch : 원격저장소가 로컬저장소를 앞서게 된다. 
+      이말은 무엇인가? : 원격저장소와 지역 저장소의 차이를 확인할수있다.    
+      git diff등을 통하여 ex) git diff HEAD origin/master   
+      그리고 이를 병합할수있다. git merge origin/master 같은 커밋을 가르키도록 병합할수있다.
+      소스코드는 다운받지 않지만 차이점을 확인할때 fetch!!!
+
+
+## git tag 
+    branch와 비슷하지만 다르다. 
+
+    releases : 사용자들에게 제공되어도 되는 각각의 버전을 뜻한다. 
+    tab : 특정 커밋을 사용자가 다운로드하거나 기억할수있도록 하는것
+    
+    - git tag 1.0.0 커밋id or 브랜치이름-> checkout을 통해서 특정 버전으로 갈수있다. 
+    - git tag - a 1.1.0 -m "bug fix" : annotated 를 설정할수잇다.  -a
+      tag에 상세한 주석을 첨부할수있다.
+
+    - 원격 저장소에tag를 올릴수도 있다. git push --tag 
+    - tag 삭제 방법 : git tag -d 버전 
+
+## git tag 원리
+    tag를 생성하면 refs/tags/tag이름 파일이 생성된다.    
+    즉 tag는 텍스트 파일이다.   
+
+    이를 원격저장소 또는 로컬의 git에서 내부적으로 적용되는 방법은 workingtree, index, repository의 원리에 의해서 작동된다. 
+
+## git rebase
+    -rebase : 소스코드를 병합하는 하나의 방법이다.
+      1. merge 병렬적으로 병합하지만 rebase는 임시저장소를 이용해 직렬적으로 병합한다. 
+      2. 공통 base를 토대로 브런치를 직렬화하면서 병합한다. 
+
+    - git rebase branchName
+    - git rebase continue
 
