@@ -10,3 +10,5 @@ git brandch test
 add develop branch
 
 feature login (ex)
+
+release doc update
