@@ -12,3 +12,5 @@ add develop branch
 feature login (ex)
 
 release doc update
+
+emergence doc modified
